@@ -742,43 +742,115 @@
             .second-description, .third-description {
                 font-size: 0.7rem;
             }
+         .tree-container {
+        height: 320px;
+        max-width: 100%;
+    }
+    
+    /* Уровень 1: Саша Дудин (центр) */
+    .tree-level-1 {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+    }
+    
+    /* Уровень 2: Илья (слева) и Данил (справа) */
+    .tree-level-2 {
+        top: 80px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    
+    .tree-level-2 .tree-member:first-child {
+        margin-left: 0;
+        transform: translateX(0);
+    }
+    
+    .tree-level-2 .tree-member:last-child {
+        margin-right: 0;
+        transform: translateX(0);
+    }
+    
+    /* Уровень 3: Саша Ковалёв и Захар (под Ильей слева) */
+    .tree-level-3 {
+        top: 160px;
+        left: 0;
+        width: 50%;
+        justify-content: flex-start;
+        padding-left: 25px;
+    }
+    
+    .tree-level-3 .tree-member {
+        margin: 0 10px 0 0;
+    }
+    
+    .tree-level-3 .tree-member:first-child {
+        margin-left: 0;
+    }
+    
+    .tree-level-3 .tree-member:last-child {
+        margin-left: 15px;
+    }
+    
+    /* Уровень 4: Владимир (центр под уровнем 3) */
+    .tree-level-4 {
+        top: 230px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+    }
+    
+    /* Уровень 5: Тимофей (слева) и Саша Калинин (справа) - под Владимиром */
+    .tree-level-5 {
+        top: 300px;
+        left: 0;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 25px;
+    }
+    
+    .tree-level-5 .tree-member:first-child {
+        margin-left: 0;
+        transform: translateX(0);
+    }
+    
+    .tree-level-5 .tree-member:last-child {
+        margin-right: 0;
+        transform: translateX(0);
+    }
+    
+    /* Уровень 6: Дима (центр под уровнем 5) */
+    .tree-level-6 {
+        top: 380px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+    }
+    
+    /* Уменьшаем размеры элементов дерева для узких экранов */
+    .tree-member {
+        width: 85px;
+        margin: 0;
+    }
+    
+    .tree-member-photo {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .tree-member-name {
+        font-size: 0.6rem;
+        margin-bottom: 4px;
+    }
+    
+    .tree-member-username {
+        font-size: 0.55rem;
+    }
             
-            .tree-container {
-                height: 300px;
-            }
-            
-            .tree-level-2 {
-                top: 70px;
-            }
-            
-            .tree-level-3 {
-                top: 140px;
-                left: 15%;
-                width: 70%;
-            }
-            
-            .tree-level-4 {
-                top: 210px;
-            }
-            
-            .tree-level-5 {
-                top: 280px;
-                left: 15%;
-                width: 70%;
-            }
-            
-            .tree-level-6 {
-                top: 350px;
-            }
-            
-            .tree-member {
-                width: 85px;
-            }
-            
-            .tree-member-photo {
-                width: 40px;
-                height: 40px;
-            }
         }
         
         @media (max-height: 700px) {
@@ -904,43 +976,35 @@
             .third-description {
                 font-size: 0.65rem;
             }
-            
             .tree-container {
-                height: 220px;
-            }
-            
-            .tree-level-2 {
-                top: 50px;
-            }
-            
-            .tree-level-3 {
-                top: 100px;
-            }
-            
-            .tree-level-4 {
-                top: 150px;
-            }
-            
-            .tree-level-5 {
-                top: 200px;
-            }
-            
-            .tree-level-6 {
-                top: 250px;
-            }
-            
-            .tree-member-photo {
-                width: 35px;
-                height: 35px;
-            }
-            
-            .tree-member-name {
-                font-size: 0.6rem;
-            }
-            
-            .tree-member-username {
-                font-size: 0.55rem;
-            }
+            height: 280px;
+        }
+        
+        .tree-level-2 {
+            top: 70px;
+        }
+        
+        .tree-level-3 {
+            top: 140px;
+        }
+        
+        .tree-level-4 {
+            top: 200px;
+        }
+        
+        .tree-level-5 {
+            top: 260px;
+        }
+        
+        .tree-level-6 {
+            top: 330px;
+        }
+        
+        .tree-member-photo {
+            width: 34px;
+            height: 34px;
+        }
+         
         }
         
         /* Для очень высоких экранов */
