@@ -1,4 +1,5 @@
- * {
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -6,6 +7,7 @@
         
         html, body {
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
         
         body {
@@ -20,7 +22,6 @@
             position: relative;
         }
         
-        /* Псевдоэлемент для затемнения фона */
         body::before {
             content: "";
             position: fixed;
@@ -32,11 +33,11 @@
             z-index: -1;
         }
         
-         .screen {
+        .screen {
             width: 100%;
             min-height: 100vh;
             max-height: 100vh;
-            padding: 15px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -45,16 +46,17 @@
             overflow: hidden;
             z-index: 1;
         }
-
+        
+        /* ПЕРВЫЙ ЭКРАН */
         .first-screen {
             justify-content: center;
         }
         
         .title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #c7a1ff;
             text-shadow: 0 0 15px rgba(199, 161, 255, 0.5);
             letter-spacing: 2px;
@@ -65,11 +67,11 @@
         }
         
         .character-gif {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             overflow: hidden;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             border: 3px solid rgba(199, 161, 255, 0.3);
             box-shadow: 0 0 30px rgba(199, 161, 255, 0.2);
             opacity: 0;
@@ -110,15 +112,15 @@
             justify-content: flex-start;
             overflow-y: auto;
             padding: 5px 0;
-            max-height: calc(100vh - 300px);
+            max-height: calc(100vh - 250px);
         }
         
         .text-box {
             background-color: rgba(20, 20, 40, 0.85);
             border: 1px solid rgba(199, 161, 255, 0.3);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
             opacity: 0;
@@ -141,18 +143,18 @@
         }
         
         .description {
-            font-size: 0.85rem;
-            line-height: 1.3;
+            font-size: 0.75rem;
+            line-height: 1.2;
             text-align: justify;
         }
         
         .features-title {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #c7a1ff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: center;
             border-bottom: 1px solid rgba(199, 161, 255, 0.3);
-            padding-bottom: 4px;
+            padding-bottom: 3px;
         }
         
         .features-list {
@@ -160,24 +162,24 @@
         }
         
         .features-list li {
-            margin-bottom: 6px;
-            padding-left: 6px;
+            margin-bottom: 5px;
+            padding-left: 5px;
             border-left: 2px solid rgba(199, 161, 255, 0.5);
-            font-size: 0.8rem;
-            line-height: 1.2;
+            font-size: 0.7rem;
+            line-height: 1.1;
         }
         
         .emoji {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             margin-right: 4px;
         }
         
         .scroll-hint {
             position: absolute;
-            bottom: 10px;
+            bottom: 8px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: rgba(199, 161, 255, 0.7);
             text-align: center;
             opacity: 0;
@@ -188,11 +190,12 @@
         
         .scroll-hint i {
             display: block;
-            margin-top: 3px;
-            font-size: 0.9rem;
+            margin-top: 2px;
+            font-size: 0.8rem;
             animation: bounce 2s infinite;
         }
-         
+        
+        /* ВТОРОЙ ЭКРАН */
         .second-screen {
             justify-content: center;
         }
@@ -276,7 +279,171 @@
             z-index: 10;
         }
         
-        /* Классы для анимации второго экрана */
+        /* ТРЕТИЙ ЭКРАН */
+        .third-screen {
+            justify-content: flex-start;
+            padding-top: 10px;
+        }
+        
+        .third-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #c7a1ff;
+            text-shadow: 0 0 15px rgba(199, 161, 255, 0.5);
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        
+        .third-text {
+            background-color: rgba(20, 20, 40, 0.85);
+            border: 1px solid rgba(199, 161, 255, 0.3);
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            width: 95%;
+            max-width: 380px;
+            transform: translateY(15px);
+        }
+        
+        .third-description {
+            font-size: 0.7rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        .tree-container {
+            width: 100%;
+            max-width: 850px;
+            height: 380px;
+            position: relative;
+            overflow: visible;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .tree-level-1 {
+            top: 0;
+        }
+        
+        .tree-level-2 {
+            top: 90px;
+        }
+        
+        .tree-level-3 {
+            top: 180px;
+            left: 25%;
+            width: 50%;
+            justify-content: space-between;
+        }
+        
+        .tree-level-4 {
+            top: 270px;
+        }
+        
+        .tree-level-5 {
+            top: 360px;
+            left: 25%;
+            width: 50%;
+            justify-content: space-between;
+        }
+        
+        .tree-level-6 {
+            top: 450px;
+        }
+        
+        .third-screen.animated .tree-container {
+            display: block;
+        }
+        
+        .third-screen.animated .tree-level-1 {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1s; 
+        }
+        
+        .third-screen.animated .tree-level-2 {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 2s; 
+        }
+        
+        .third-screen.animated .tree-level-3 {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 3s; 
+        }
+        
+        .third-screen.animated .tree-level-4 {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 4s; 
+        }
+        
+        .third-screen.animated .tree-level-5 {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 5s; 
+        }
+        
+        .third-screen.animated .tree-level-6 {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 6s; 
+        }
+        
+        .tree-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 100px;
+        }
+        
+        .tree-member-name {
+            font-size: 0.65rem;
+            color: #c7a1ff;
+            margin-bottom: 5px;
+            text-align: center;
+            font-weight: 600;
+            width: 100%;
+            word-wrap: break-word;
+        }
+        
+        .tree-member-photo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px dashed rgba(199, 161, 255, 0.5);
+            margin-bottom: 5px;
+            background-color: #000;
+            flex-shrink: 0;
+        }
+        
+        .tree-member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .tree-member-username {
+            font-size: 0.6rem;
+            color: #a8a8c8;
+            text-align: center;
+            width: 100%;
+            word-wrap: break-word;
+        }
+        
         .second-screen.animated .second-title {
             animation: fadeInDown 1.5s ease-out forwards;
             animation-delay: 0.5s;
@@ -302,7 +469,17 @@
             animation-delay: 5s;
         }
         
-        /* Анимации */
+        /* Классы для анимации третьего экрана */
+        .third-screen.animated .third-title {
+            animation: fadeInDown 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        .third-screen.animated .third-text {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1s;
+        }
+        
         @keyframes appearFromNowhere {
             0% {
                 opacity: 0;
@@ -332,7 +509,7 @@
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
-                transform: translateY(15px);
+                transform: translateY(20px);
             }
             100% {
                 opacity: 1;
@@ -383,9 +560,8 @@
             }
         }
         
-        /* Горизонтальная ориентация (ландшафт) */
         @media (orientation: landscape) {
-            .first-screen, .second-screen {
+            .first-screen, .second-screen, .third-screen {
                 flex-direction: row;
                 padding: 8px;
                 justify-content: space-around;
@@ -448,7 +624,6 @@
                 animation-delay: 6s;
             }
             
-            /* Второй экран в ландшафте */
             .second-screen {
                 flex-direction: column;
             }
@@ -474,7 +649,63 @@
                 margin: 12px auto;
             }
             
-            /* Анимации для ландшафта */
+            .third-screen {
+                flex-direction: column;
+            }
+            
+            .third-title {
+                font-size: 1.1rem;
+                position: absolute;
+                top: 8px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-20px);
+                width: 100%;
+            }
+            
+            .third-text {
+                padding: 8px;
+                max-width: 80%;
+                margin-bottom: 10px;
+            }
+            
+            .tree-container {
+                height: 280px;
+                max-width: 95%;
+            }
+            
+            .tree-level-2 {
+                top: 60px;
+            }
+            
+            .tree-level-3 {
+                top: 120px;
+                left: 20%;
+                width: 60%;
+            }
+            
+            .tree-level-4 {
+                top: 180px;
+            }
+            
+            .tree-level-5 {
+                top: 240px;
+                left: 20%;
+                width: 60%;
+            }
+            
+            .tree-level-6 {
+                top: 300px;
+            }
+            
+            .tree-member {
+                width: 90px;
+            }
+            
+            .tree-member-photo {
+                width: 40px;
+                height: 40px;
+            }
+            
             .second-screen.animated .right-box, 
             .second-screen.animated .left-box {
                 animation: fadeInUp 1.5s ease-out forwards;
@@ -504,12 +735,49 @@
                 font-size: 0.65rem;
             }
             
-            .second-title {
+            .second-title, .third-title {
                 font-size: 1.3rem;
             }
             
-            .second-description {
+            .second-description, .third-description {
                 font-size: 0.7rem;
+            }
+            
+            .tree-container {
+                height: 300px;
+            }
+            
+            .tree-level-2 {
+                top: 70px;
+            }
+            
+            .tree-level-3 {
+                top: 140px;
+                left: 15%;
+                width: 70%;
+            }
+            
+            .tree-level-4 {
+                top: 210px;
+            }
+            
+            .tree-level-5 {
+                top: 280px;
+                left: 15%;
+                width: 70%;
+            }
+            
+            .tree-level-6 {
+                top: 350px;
+            }
+            
+            .tree-member {
+                width: 85px;
+            }
+            
+            .tree-member-photo {
+                width: 40px;
+                height: 40px;
             }
         }
         
@@ -538,12 +806,12 @@
                 font-size: 0.65rem;
             }
             
-            .second-title {
+            .second-title, .third-title {
                 font-size: 1.3rem;
                 margin-bottom: 8px;
             }
             
-            .second-text, .second-text-left {
+            .second-text, .second-text-left, .third-text {
                 padding: 8px;
                 margin-bottom: 8px;
             }
@@ -551,6 +819,30 @@
             .video-container {
                 height: 180px;
                 margin-bottom: 8px;
+            }
+            
+            .tree-container {
+                height: 250px;
+            }
+            
+            .tree-level-2 {
+                top: 60px;
+            }
+            
+            .tree-level-3 {
+                top: 120px;
+            }
+            
+            .tree-level-4 {
+                top: 180px;
+            }
+            
+            .tree-level-5 {
+                top: 240px;
+            }
+            
+            .tree-level-6 {
+                top: 300px;
             }
         }
         
@@ -575,17 +867,17 @@
                 margin-bottom: 3px;
             }
             
-            .scroll-hint, .second-scroll-hint {
+            .scroll-hint, .second-scroll-hint, .third-scroll-hint {
                 bottom: 5px;
                 font-size: 0.65rem;
             }
             
-            .second-title {
+            .second-title, .third-title {
                 font-size: 1.2rem;
                 margin-bottom: 6px;
             }
             
-            .second-text, .second-text-left {
+            .second-text, .second-text-left, .third-text {
                 padding: 7px;
                 margin-bottom: 6px;
             }
@@ -594,62 +886,60 @@
                 height: 150px;
                 margin-bottom: 6px;
             }
-        }
-        
-        @media (max-height: 500px) {
-            .title {
-                font-size: 1.3rem;
+            
+            .third-screen {
+                padding-top: 5px;
+            }
+            
+            .third-title {
+                font-size: 1.1rem;
                 margin-bottom: 5px;
             }
             
-            .character-gif {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 5px;
-            }
-            
-            .content-wrapper {
-                max-height: calc(100vh - 150px);
-            }
-            
-            .text-box {
+            .third-text {
                 padding: 6px;
-                margin-bottom: 4px;
-                border-radius: 8px;
+                margin-bottom: 8px;
             }
             
-            .description {
+            .third-description {
+                font-size: 0.65rem;
+            }
+            
+            .tree-container {
+                height: 220px;
+            }
+            
+            .tree-level-2 {
+                top: 50px;
+            }
+            
+            .tree-level-3 {
+                top: 100px;
+            }
+            
+            .tree-level-4 {
+                top: 150px;
+            }
+            
+            .tree-level-5 {
+                top: 200px;
+            }
+            
+            .tree-level-6 {
+                top: 250px;
+            }
+            
+            .tree-member-photo {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .tree-member-name {
                 font-size: 0.6rem;
             }
             
-            .features-title {
-                font-size: 0.8rem;
-                margin-bottom: 4px;
-            }
-            
-            .features-list li {
+            .tree-member-username {
                 font-size: 0.55rem;
-                margin-bottom: 2px;
-            }
-            
-            .second-title {
-                font-size: 1rem;
-                margin-bottom: 5px;
-            }
-            
-            .second-text, .second-text-left {
-                padding: 6px;
-                margin-bottom: 5px;
-                border-radius: 8px;
-            }
-            
-            .second-description {
-                font-size: 0.6rem;
-            }
-            
-            .video-container {
-                height: 120px;
-                margin-bottom: 5px;
             }
         }
         
@@ -679,18 +969,18 @@
                 font-size: 0.8rem;
             }
             
-            .second-title {
+            .second-title, .third-title {
                 font-size: 1.8rem;
                 margin-bottom: 15px;
             }
             
-            .second-text, .second-text-left {
+            .second-text, .second-text-left, .third-text {
                 padding: 12px;
                 margin-bottom: 15px;
                 max-width: 450px;
             }
             
-            .second-description {
+            .second-description, .third-description {
                 font-size: 0.85rem;
             }
             
@@ -699,4 +989,35 @@
                 height: 220px;
                 margin-bottom: 15px;
             }
+            
+            .tree-container {
+                height: 450px;
+                max-width: 700px;
+            }
+            
+            .tree-level-2 {
+                top: 100px;
+            }
+            
+            .tree-level-3 {
+                top: 200px;
+            }
+            
+            .tree-level-4 {
+                top: 300px;
+            }
+            
+            .tree-level-5 {
+                top: 400px;
+            }
+            
+            .tree-level-6 {
+                top: 500px;
+            }
+            
+            .tree-member-photo {
+                width: 50px;
+                height: 50px;
+            }
         }
+    
