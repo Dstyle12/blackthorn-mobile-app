@@ -279,10 +279,11 @@
             z-index: 10;
         }
         
-        /* ТРЕТИЙ ЭКРАН */
+       /* ТРЕТИЙ ЭКРАН */
         .third-screen {
             justify-content: flex-start;
             padding-top: 10px;
+            overflow-y: auto;
         }
         
         .third-title {
@@ -317,132 +318,124 @@
             text-align: center;
         }
         
-        .tree-container {
+        /* ПРОСТАЯ ГРИД-СЕТКА ДЛЯ ВСЕХ ЭЛЕМЕНТОВ КОМАНДЫ */
+        .team-grid-simple {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 15px;
             width: 100%;
-            max-width: 850px;
-            height: 380px;
-            position: relative;
-            overflow: visible;
-            margin-top: 10px;
-            display: none;
-        }
-        
-        .tree-level {
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            width: 100%;
-            left: 0;
+            max-width: 800px;
+            margin-top: 15px;
+            padding: 0 15px;
+            justify-items: center;
             opacity: 0;
-            transform: translateY(20px);
         }
         
-        .tree-level-1 {
-            top: 0;
-        }
-        
-        .tree-level-2 {
-            top: 90px;
-        }
-        
-        .tree-level-3 {
-            top: 180px;
-            left: 25%;
-            width: 50%;
-            justify-content: space-between;
-        }
-        
-        .tree-level-4 {
-            top: 270px;
-        }
-        
-        .tree-level-5 {
-            top: 360px;
-            left: 25%;
-            width: 50%;
-            justify-content: space-between;
-        }
-        
-        .tree-level-6 {
-            top: 450px;
-        }
-        
-        .third-screen.animated .tree-container {
-            display: block;
-        }
-        
-        .third-screen.animated .tree-level-1 {
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 1s; 
-        }
-        
-        .third-screen.animated .tree-level-2 {
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 2s; 
-        }
-        
-        .third-screen.animated .tree-level-3 {
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 3s; 
-        }
-        
-        .third-screen.animated .tree-level-4 {
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 4s; 
-        }
-        
-        .third-screen.animated .tree-level-5 {
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 5s; 
-        }
-        
-        .third-screen.animated .tree-level-6 {
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 6s; 
-        }
-        
-        .tree-member {
+        /* Элемент члена команды */
+        .team-member-simple {
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            width: 100px;
+            width: 90px;
+            opacity: 0;
+            transform: translateY(10px);
         }
         
-        .tree-member-name {
-            font-size: 0.65rem;
+        /* Уменьшенные фотографии */
+        .team-member-photo-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid rgba(199, 161, 255, 0.5);
+            margin-bottom: 3px;
+            background-color: #000;
+            position: relative;
+        }
+        
+        .team-member-photo-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .team-member-name-small {
+            font-size: 0.7rem;
             color: #c7a1ff;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
             text-align: center;
             font-weight: 600;
             width: 100%;
             word-wrap: break-word;
         }
         
-        .tree-member-photo {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px dashed rgba(199, 161, 255, 0.5);
-            margin-bottom: 5px;
-            background-color: #000;
-            flex-shrink: 0;
-        }
-        
-        .tree-member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .tree-member-username {
+        .team-member-username-small {
             font-size: 0.6rem;
             color: #a8a8c8;
             text-align: center;
             width: 100%;
             word-wrap: break-word;
         }
+        
+        /* Анимации для простой сетки */
+        .third-screen.animated .team-grid-simple {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        /* Анимации для каждого элемента */
+        .third-screen.animated .team-member-simple {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Разные задержки для элементов для эффекта появления один за другим */
+        .third-screen.animated .team-member-simple:nth-child(1) { animation-delay: 0.7s; }
+        .third-screen.animated .team-member-simple:nth-child(2) { animation-delay: 0.9s; }
+        .third-screen.animated .team-member-simple:nth-child(3) { animation-delay: 1.1s; }
+        .third-screen.animated .team-member-simple:nth-child(4) { animation-delay: 1.3s; }
+        .third-screen.animated .team-member-simple:nth-child(5) { animation-delay: 1.5s; }
+        .third-screen.animated .team-member-simple:nth-child(6) { animation-delay: 1.7s; }
+        .third-screen.animated .team-member-simple:nth-child(7) { animation-delay: 1.9s; }
+        .third-screen.animated .team-member-simple:nth-child(8) { animation-delay: 2.1s; }
+        .third-screen.animated .team-member-simple:nth-child(9) { animation-delay: 2.3s; }
+        
+        /* Анимации для заголовка и текста */
+        .third-screen.animated .third-title {
+            animation: fadeInDown 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        .third-screen.animated .third-text {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1s;
+        }
+        
+        /* Подсказка скролла для третьего экрана */
+        .third-scroll-hint {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: rgba(199, 161, 255, 0.7);
+            text-align: center;
+            opacity: 0;
+            z-index: 10;
+            background: rgba(20, 20, 40, 0.7);
+            padding: 5px 10px;
+            border-radius: 15px;
+            border: 1px solid rgba(199, 161, 255, 0.3);
+        }
+        
+        .third-screen.animated .third-scroll-hint {
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 3.5s;
+        }
+        
         
         .second-screen.animated .second-title {
             animation: fadeInDown 1.5s ease-out forwards;
@@ -469,16 +462,6 @@
             animation-delay: 5s;
         }
         
-        /* Классы для анимации третьего экрана */
-        .third-screen.animated .third-title {
-            animation: fadeInDown 1s ease-out forwards;
-            animation-delay: 0.5s;
-        }
-        
-        .third-screen.animated .third-text {
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 1s;
-        }
         
         @keyframes appearFromNowhere {
             0% {
@@ -649,67 +632,40 @@
                 margin: 12px auto;
             }
             
-            .third-screen {
-                flex-direction: column;
-            }
-            
-            .third-title {
-                font-size: 1.1rem;
-                position: absolute;
-                top: 8px;
-                left: 50%;
-                transform: translateX(-50%) translateY(-20px);
-                width: 100%;
-            }
-            
-            .third-text {
-                padding: 8px;
-                max-width: 80%;
-                margin-bottom: 10px;
-            }
-            
-            .tree-container {
-                height: 280px;
-                max-width: 95%;
-            }
-            
-            .tree-level-2 {
-                top: 60px;
-            }
-            
-            .tree-level-3 {
-                top: 120px;
-                left: 20%;
-                width: 60%;
-            }
-            
-            .tree-level-4 {
-                top: 180px;
-            }
-            
-            .tree-level-5 {
-                top: 240px;
-                left: 20%;
-                width: 60%;
-            }
-            
-            .tree-level-6 {
-                top: 300px;
-            }
-            
-            .tree-member {
-                width: 90px;
-            }
-            
-            .tree-member-photo {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .second-screen.animated .right-box, 
-            .second-screen.animated .left-box {
-                animation: fadeInUp 1.5s ease-out forwards;
-            }
+             /* Третий экран в ландшафте */
+    .third-screen {
+        flex-direction: column;
+    }
+    
+    .third-title {
+        font-size: 1.1rem;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-20px);
+        width: 100%;
+    }
+    
+    .third-text {
+        padding: 8px;
+        max-width: 80%;
+        margin-bottom: 10px;
+    }
+    
+    .team-grid-simple {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 20px;
+        max-width: 700px;
+    }
+    
+    .team-member-simple {
+        width: 100px;
+    }
+    
+    .team-member-photo-small {
+        width: 45px;
+        height: 45px;
+    }
         }
         
         /* Очень маленькие экраны */
@@ -742,43 +698,46 @@
             .second-description, .third-description {
                 font-size: 0.7rem;
             }
-            
-            .tree-container {
-                height: 300px;
-            }
-            
-            .tree-level-2 {
-                top: 70px;
-            }
-            
-            .tree-level-3 {
-                top: 140px;
-                left: 15%;
-                width: 70%;
-            }
-            
-            .tree-level-4 {
-                top: 210px;
-            }
-            
-            .tree-level-5 {
-                top: 280px;
-                left: 15%;
-                width: 70%;
-            }
-            
-            .tree-level-6 {
-                top: 350px;
-            }
-            
-            .tree-member {
-                width: 85px;
-            }
-            
-            .tree-member-photo {
-                width: 40px;
-                height: 40px;
-            }
+
+    .team-grid-simple {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .team-member-simple {
+        width: 80px;
+    }
+    
+    .team-member-photo-small {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .team-member-name-small {
+        font-size: 0.65rem;
+    }
+    
+    .team-member-username-small {
+        font-size: 0.55rem;
+    }
+    
+    .features-title {
+        font-size: 0.9rem;
+    }
+    
+    .features-list li {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+    }
+    
+    .emoji {
+        font-size: 0.8rem;
+    }
+    
+    .scroll-hint, .second-scroll-hint, .third-scroll-hint {
+        font-size: 0.65rem;
+    }
         }
         
         @media (max-height: 700px) {
@@ -821,29 +780,23 @@
                 margin-bottom: 8px;
             }
             
-            .tree-container {
-                height: 250px;
-            }
-            
-            .tree-level-2 {
-                top: 60px;
-            }
-            
-            .tree-level-3 {
-                top: 120px;
-            }
-            
-            .tree-level-4 {
-                top: 180px;
-            }
-            
-            .tree-level-5 {
-                top: 240px;
-            }
-            
-            .tree-level-6 {
-                top: 300px;
-            }
+    .team-grid-simple {
+        gap: 12px;
+        margin-top: 10px;
+    }
+    
+    .team-member-photo-small {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .team-member-name-small {
+        font-size: 0.65rem;
+    }
+    
+    .team-member-username-small {
+        font-size: 0.55rem;
+    }
         }
         
         @media (max-height: 600px) {
@@ -887,63 +840,53 @@
                 margin-bottom: 6px;
             }
             
-            .third-screen {
-                padding-top: 5px;
-            }
-            
-            .third-title {
-                font-size: 1.1rem;
-                margin-bottom: 5px;
-            }
-            
-            .third-text {
-                padding: 6px;
-                margin-bottom: 8px;
-            }
-            
-            .third-description {
-                font-size: 0.65rem;
-            }
-            
-            .tree-container {
-                height: 220px;
-            }
-            
-            .tree-level-2 {
-                top: 50px;
-            }
-            
-            .tree-level-3 {
-                top: 100px;
-            }
-            
-            .tree-level-4 {
-                top: 150px;
-            }
-            
-            .tree-level-5 {
-                top: 200px;
-            }
-            
-            .tree-level-6 {
-                top: 250px;
-            }
-            
-            .tree-member-photo {
-                width: 35px;
-                height: 35px;
-            }
-            
-            .tree-member-name {
-                font-size: 0.6rem;
-            }
-            
-            .tree-member-username {
-                font-size: 0.55rem;
-            }
+    .third-screen {
+        padding-top: 5px;
+        padding-bottom: 40px;
+    }
+    
+    .third-title {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+    
+    .third-text {
+        padding: 6px;
+        margin-bottom: 8px;
+    }
+    
+    .third-description {
+        font-size: 0.65rem;
+    }
+    
+    .team-grid-simple {
+        gap: 10px;
+        margin-top: 5px;
+    }
+    
+    .team-member-simple {
+        width: 80px;
+    }
+    
+    .team-member-photo-small {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .team-member-name-small {
+        font-size: 0.6rem;
+    }
+    
+    .team-member-username-small {
+        font-size: 0.5rem;
+    }
+    
+    .third-scroll-hint {
+        bottom: 10px;
+        padding: 4px 8px;
+    }
         }
         
-        /* Для очень высоких экранов */
         @media (min-height: 800px) and (min-width: 400px) {
             .title {
                 font-size: 2.5rem;
@@ -990,34 +933,42 @@
                 margin-bottom: 15px;
             }
             
-            .tree-container {
-                height: 450px;
-                max-width: 700px;
-            }
-            
-            .tree-level-2 {
-                top: 100px;
-            }
-            
-            .tree-level-3 {
-                top: 200px;
-            }
-            
-            .tree-level-4 {
-                top: 300px;
-            }
-            
-            .tree-level-5 {
-                top: 400px;
-            }
-            
-            .tree-level-6 {
-                top: 500px;
-            }
-            
-            .tree-member-photo {
-                width: 50px;
-                height: 50px;
-            }
+    .team-grid-simple {
+        gap: 20px;
+        margin-top: 20px;
+        max-width: 900px;
+    }
+    
+    .team-member-simple {
+        width: 110px;
+    }
+    
+    .team-member-photo-small {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .team-member-name-small {
+        font-size: 0.8rem;
+    }
+    
+    .team-member-username-small {
+        font-size: 0.7rem;
+    }
+    
+    .features-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .features-list li {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+    
+    .emoji {
+        font-size: 1rem;
+    }
         }
     
